@@ -1518,7 +1518,21 @@ void CChangeLevel :: ChangeLevelNow( CBaseEntity *pActivator )
 	}
 //	ALERT( at_console, "Level touches %d levels\n", ChangeList( levels, 16 ) );
 	ALERT( at_console, "CHANGE LEVEL: %s %s\n", st_szNextMap, st_szNextSpot );
-	CHANGE_LEVEL( st_szNextMap, st_szNextSpot );
+
+	// TODO: actually check if this is a coop server, not just check for DS?
+	if ( !IS_DEDICATED_SERVER() )
+	{
+		CHANGE_LEVEL(st_szNextMap, st_szNextSpot);
+	}
+	else {
+		// hack using SERVER_COMMAND to change the level on transition triggers
+		char changeLevelCommand[45] = "";
+		strcpy(changeLevelCommand, "changelevel ");
+		strcat(changeLevelCommand, st_szNextMap);
+		strcat(changeLevelCommand, "\n");
+
+		SERVER_COMMAND( changeLevelCommand );
+	}
 }
 
 //
