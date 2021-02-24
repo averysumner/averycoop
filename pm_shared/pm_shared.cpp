@@ -2550,13 +2550,13 @@ void PM_Jump (void)
 		return;		// in air, so no effect
 	}
 
-	if ( pmove->oldbuttons & IN_JUMP )
+	if (pmove->oldbuttons & IN_JUMP && atoi(pmove->PM_Info_ValueForKey(pmove->physinfo, "sv_autobunnyhopping")) == 0 ) 
 		return;		// don't pogo stick
 
 	// In the air now.
     pmove->onground = -1;
 
-	PM_PreventMegaBunnyJumping();
+	if ( atoi(pmove->PM_Info_ValueForKey(pmove->physinfo, "sv_enablebunnyhopping")) == 0 ) PM_PreventMegaBunnyJumping();
 
 	if ( tfc )
 	{

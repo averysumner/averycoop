@@ -17,6 +17,10 @@
 #include "util.h"
 #include "game.h"
 
+// averycoop variables
+cvar_t enablebunnyhopping = { "sv_enablebunnyhopping","0", FCVAR_SERVER };
+cvar_t autobunnyhopping = { "sv_autobunnyhopping","0", FCVAR_SERVER };
+
 cvar_t	displaysoundlist = {"displaysoundlist","0"};
 
 // multiplayer server rules
@@ -461,6 +465,9 @@ void GameDLLInit( void )
 	g_psv_aim = CVAR_GET_POINTER( "sv_aim" );
 	g_footsteps = CVAR_GET_POINTER( "mp_footsteps" );
 	g_psv_cheats = CVAR_GET_POINTER("sv_cheats");
+
+	CVAR_REGISTER (&enablebunnyhopping);
+	CVAR_REGISTER (&autobunnyhopping);
 
 	CVAR_REGISTER (&displaysoundlist);
 	CVAR_REGISTER( &allow_spectators );

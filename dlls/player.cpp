@@ -2489,6 +2489,10 @@ void CBasePlayer :: UpdatePlayerSound ( void )
 
 void CBasePlayer::PostThink()
 {
+	// avery coop bunnyhopping convar bodge - garbage
+	g_engfuncs.pfnSetPhysicsKeyValue(edict(), "sv_enablebunnyhopping", CVAR_GET_STRING("sv_enablebunnyhopping"));
+	g_engfuncs.pfnSetPhysicsKeyValue(edict(), "sv_autobunnyhopping", CVAR_GET_STRING("sv_autobunnyhopping"));
+
 	if ( g_fGameOver )
 		goto pt_end;         // intermission or finale
 

@@ -18,6 +18,9 @@
 
 extern void GameDLLInit( void );
 
+// avery coop variables
+extern cvar_t enablebunnyhopping;
+extern cvar_t autobunnyhopping;
 
 extern cvar_t	displaysoundlist;
 
