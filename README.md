@@ -1,6 +1,6 @@
 Avery Co-Op
 ======================
-This fork of the halflife-updated SDK contains the source to the mod Avery Co-Op. Avery Co-Op is a mod intended to deliver a vanilla half life experience with a Co-Op mod, without the feature bloat of mods like Sven Co-Op.
+This fork of the halflife-updated SDK contains the source to the mod Avery Co-Op. Avery Co-Op is a mod intended to deliver a vanilla Half Life 1 experience with a Co-Op mode, without the feature bloat of mods like Sven Co-Op.
 
 Half Life 1 SDK LICENSE
 ======================
